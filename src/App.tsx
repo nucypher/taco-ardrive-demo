@@ -84,9 +84,9 @@ export default function App() {
   };
 
   const decryptMessage = async (encryptedMessageId: string) => {
-    if (!condition) {
-      return;
-    }
+    // if (!condition) {
+    //   return;
+    // }
     setLoading(true);
     setDecryptedMessage('');
     setDecryptionErrors([]);
@@ -96,15 +96,19 @@ export default function App() {
       Buffer.from(encryptedMessageHex, 'hex'),
     );
 
-    const decryptedMessage = await decrypt(
-      provider,
-      domain,
-      encryptedMessage,
-      'https://porter-tapir.nucypher.io/',
-      provider.getSigner(),
-    );
+    try {
+      const decryptedMessage = await decrypt(
+        provider,
+        domain,
+        encryptedMessage,
+        'https://porter-tapir.nucypher.io/',
+        provider.getSigner(),
+      );
+      setDecryptedMessage(new TextDecoder().decode(decryptedMessage));
+    } catch(e){
+      setDecryptionErrors([e.message]);
+    }
 
-    setDecryptedMessage(new TextDecoder().decode(decryptedMessage));
     setLoading(false);
   };
 
