@@ -3,11 +3,14 @@ import {
   decrypt,
   domains,
   encrypt,
-  getPorterUri,
   initialize,
   ThresholdMessageKit,
   toHexString,
 } from '@nucypher/taco';
+import {
+  EIP4361AuthProvider,
+  USER_ADDRESS_PARAM_DEFAULT,
+} from '@nucypher/taco-auth';
 import { useEthers } from '@usedapp/core';
 import { ethers } from 'ethers';
 import React, { useEffect, useState } from 'react';
@@ -84,9 +87,6 @@ export default function App() {
   };
 
   const decryptMessage = async (encryptedMessageId: string) => {
-    // if (!condition) {
-    //   return;
-    // }
     setLoading(true);
     setDecryptedMessage('');
     setDecryptionErrors([]);
@@ -97,12 +97,18 @@ export default function App() {
     );
 
     try {
+      const conditionContext =
+        conditions.context.ConditionContext.fromMessageKit(encryptedMessage);
+      const authProvider = new EIP4361AuthProvider(provider, provider.getSigner());
+      conditionContext.addAuthProvider(
+        USER_ADDRESS_PARAM_DEFAULT,
+        authProvider,
+      );
       const decryptedMessage = await decrypt(
         provider,
         domain,
         encryptedMessage,
-        'https://porter-tapir.nucypher.io/',
-        provider.getSigner(),
+        conditionContext
       );
       setDecryptedMessage(new TextDecoder().decode(decryptedMessage));
     } catch(e){
