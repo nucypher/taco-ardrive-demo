@@ -25,12 +25,14 @@ export const Encrypt = ({ encrypt, encryptedMessageId, enabled }: Props) => {
     return (
       <>
         <div>
+          <h2>Successfully Uploaded!!!</h2>
           <h3>Arweave Upload Receipt id:</h3>
           <pre className="encryptedMessageId">{encryptedMessageId}</pre>
           <CopyToClipboard text={encryptedMessageId}>
             <button>Copy to clipboard</button>
           </CopyToClipboard>
           <h3>View Transaction</h3>
+          <p>It can take a while for the transaction to be indexed, don't worry if you get a 404</p>
           <a href={viewblockUrl} target="_blank" rel="noopener noreferrer">
             View on Viewblock
           </a>

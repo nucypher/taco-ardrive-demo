@@ -144,7 +144,7 @@ export default function App() {
           To use TACo's encrypt/decrypt API, you must choose a RitualID and Domain. The RitualID is the ID of the cohort of nodes that will manage access to encrypted data. The Domain is the network – i.e. testnet, devnet or mainnet. Note that using TACo in production (i.e. the mainnet version) requires your identity – in this case a wallet address – to be on an encryptor allowlist. This list is controlled by the Cohort Authority.
          </p>
          <p>
-          To use TACo's publicly available testnet, you can set the RitualID to '0'.
+          To use TACo's publicly available testnet, you can set the RitualID to '6'.
         </p>
         <p>Choose a RitualID</p>
         <input
