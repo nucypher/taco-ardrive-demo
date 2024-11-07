@@ -1,16 +1,17 @@
 {
-  "extends": "../../tsconfig.json",
-  "include": ["src", "types"],
   "compilerOptions": {
-    "jsx": "react",
-    "noEmit": true,
-    "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
+    "declaration": true,
+    "lib": ["ES2018", "dom"],
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "strict": true,
+    "target": "ES2018",
+    "sourceMap": true,
+    "composite": true,
+    "incremental": true,
+    "exactOptionalPropertyTypes": true,
+    "noImplicitOverride": true,
   },
-  "references": [
-    {
-      "path": "../../packages/taco/tsconfig.es.json",
-    },
-  ],
+  "include": ["**/*.ts", "**/*.js", "**/.*.js", "scripts/.common.ts"],
+  "exclude": ["**/node_modules"],
 }

@@ -43,6 +43,10 @@ export default function App() {
   const [domain, setDomain] = useState<string>(DEFAULT_DOMAIN);
 
   const chainId = chainIdForDomain[domain];
+  if (!window.ethereum) {
+    console.error("No Ethereum provider found");
+    return;
+  }
   const provider = new ethers.providers.Web3Provider(window.ethereum);
 
 
@@ -96,14 +100,19 @@ export default function App() {
       Buffer.from(encryptedMessageHex, 'hex'),
     );
 
+    const authProvider = new EIP4361AuthProvider(provider, provider.getSigner());
+    console.log({ authProvider });
+    const conditionContext =
+      conditions.context.ConditionContext.fromMessageKit(encryptedMessage);
+    console.log({ conditionContext });
+    
+    conditionContext.addAuthProvider(
+      USER_ADDRESS_PARAM_DEFAULT,
+      authProvider,
+    );
+    console.log({ conditionContext });
+
     try {
-      const conditionContext =
-        conditions.context.ConditionContext.fromMessageKit(encryptedMessage);
-      const authProvider = new EIP4361AuthProvider(provider, provider.getSigner());
-      conditionContext.addAuthProvider(
-        USER_ADDRESS_PARAM_DEFAULT,
-        authProvider,
-      );
       const decryptedMessage = await decrypt(
         provider,
         domain,

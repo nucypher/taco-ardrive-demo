@@ -8,10 +8,8 @@ interface Props {
   enabled: boolean;
 }
 
-const rpcCondition = new conditions.base.rpc.RpcCondition({
-  chain: 80002,
-  method: 'eth_getBalance',
-  parameters: [':userAddress'],
+const rpcCondition = new conditions.base.jsonApi.JsonApiCondition({
+  endpoint: 'https://arweave.net/wallet/:userAddress/balance',
   returnValueTest: {
     comparator: '>',
     value: 0,
