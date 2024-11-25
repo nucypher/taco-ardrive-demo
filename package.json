@@ -14,8 +14,8 @@
   "dependencies": {
     "@ardrive/turbo-sdk": "1.9.0",
     "@irys/sdk": "^0.1.24",
-    "@nucypher/taco": "^0.6.0-alpha.0",
-    "@nucypher/taco-auth": "^0.3.0-alpha.0",
+    "@nucypher/taco": "^0.6.0-alpha.1",
+    "@nucypher/taco-auth": "^0.3.0-alpha.1",
     "@tanstack/react-query": "^5.39.0",
     "@usedapp/core": "^1.2.13",
     "arbundles": "^0.11.0",

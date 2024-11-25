@@ -15,6 +15,8 @@ const rpcCondition = new conditions.base.jsonApi.JsonApiCondition({
     value: 0,
   },
 });
+console.log("Requires Authentication:");
+console.log(rpcCondition.requiresAuthentication());
 
 export const ConditionBuilder = ({
   condition,

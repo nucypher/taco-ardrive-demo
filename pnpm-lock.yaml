@@ -12,11 +12,11 @@ dependencies:
     specifier: ^0.1.24
     version: 0.1.24(arweave@1.15.1)
   '@nucypher/taco':
-    specifier: ^0.6.0-alpha.0
-    version: 0.6.0-alpha.0
+    specifier: ^0.6.0-alpha.1
+    version: 0.6.0-alpha.1
   '@nucypher/taco-auth':
-    specifier: ^0.3.0-alpha.0
-    version: 0.3.0-alpha.0(ethers@5.7.2)
+    specifier: ^0.3.0-alpha.1
+    version: 0.3.0-alpha.1(ethers@5.7.2)
   '@tanstack/react-query':
     specifier: ^5.39.0
     version: 5.56.2(react@18.3.1)
@@ -2930,8 +2930,8 @@ packages:
     resolution: {integrity: sha512-Q3kBuJL0qtTtnxrM5DEQauQUvDlXmwubm9u1h7gbyLhs+aZNC9WDyjEUbE43+uahlHu4k1hKEMxD1gjV165ChA==}
     dev: false
 
-  /@nucypher/shared@0.5.0-alpha.0:
-    resolution: {integrity: sha512-YW/ma28Z6PONwDvCDgpw7cSXzBB8XH5+/633MrSM0jJCCNXMSrdF2dtKYcVjIWUisHx+Y5Wsz5ojP8GffJ7xzw==}
+  /@nucypher/shared@0.5.0-alpha.1:
+    resolution: {integrity: sha512-hSYMAIy4ChlnIhquKUzd0E7Ngx9MsLbyr8LF/rWKVRtWydatvPx7mpkDWQFEohrS74RuqNkmYl3vI7VhIME75Q==}
     engines: {node: '>=18', pnpm: '>=8.0.0'}
     dependencies:
       '@ethersproject/abi': 5.7.0
@@ -2949,12 +2949,12 @@ packages:
       - utf-8-validate
     dev: false
 
-  /@nucypher/taco-auth@0.3.0-alpha.0(ethers@5.7.2):
-    resolution: {integrity: sha512-uoG2ZwJOf21/maBwTOEV0FtO8M8WXeDgWSVMl6jUkrTITUTaWJC3k8jXdUeKX1YiiuPh4crJtLQyWdXrasJ4WA==}
+  /@nucypher/taco-auth@0.3.0-alpha.1(ethers@5.7.2):
+    resolution: {integrity: sha512-QJRK1N5i/+EcBDKWa6AQ9R9Vl0xb5YcRAx6Cm+lgbzCAbmLgo1VE0UX/hiWC9nAaueMxjZGBlt8ZTctSorDugQ==}
     engines: {node: '>=18', pnpm: '>=8.0.0'}
     dependencies:
       '@ethersproject/abstract-signer': 5.7.0
-      '@nucypher/shared': 0.5.0-alpha.0
+      '@nucypher/shared': 0.5.0-alpha.1
       siwe: 2.3.2(ethers@5.7.2)
       zod: 3.23.8
     transitivePeerDependencies:
@@ -2964,14 +2964,14 @@ packages:
       - utf-8-validate
     dev: false
 
-  /@nucypher/taco@0.6.0-alpha.0:
-    resolution: {integrity: sha512-t8IQzTNSQP8/s+Xtiu9/mwhulc6UNspyzqZ9LQ8grtF57ecu3kdIFc2Hwg74C2MMD3E99G9P+L9Q+5h1NdphAg==}
+  /@nucypher/taco@0.6.0-alpha.1:
+    resolution: {integrity: sha512-98js6hqOMoSnOo+UjFgbvq6BsfEF0yl6Zaex1djB3QusM0vR4UGfhCaUDhGOc4+hglZrBm95Rv/pj8FdF1zpsg==}
     engines: {node: '>=18', pnpm: '>=8.0.0'}
     dependencies:
       '@astronautlabs/jsonpath': 1.1.2
       '@nucypher/nucypher-core': 0.14.5
-      '@nucypher/shared': 0.5.0-alpha.0
-      '@nucypher/taco-auth': 0.3.0-alpha.0(ethers@5.7.2)
+      '@nucypher/shared': 0.5.0-alpha.1
+      '@nucypher/taco-auth': 0.3.0-alpha.1(ethers@5.7.2)
       ethers: 5.7.2
       semver: 7.6.3
       zod: 3.23.8
