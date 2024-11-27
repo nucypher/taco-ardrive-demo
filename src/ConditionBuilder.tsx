@@ -9,10 +9,11 @@ interface Props {
 }
 
 const rpcCondition = new conditions.base.jsonApi.JsonApiCondition({
-  endpoint: 'https://arweave.net/wallet/:userAddress/balance',
+  endpoint: 'https://arweave.net/info',
+  query: '$.height',
   returnValueTest: {
     comparator: '>',
-    value: 0,
+    value: 1556508,
   },
 });
 console.log("Requires Authentication:");
@@ -71,9 +72,8 @@ export const ConditionBuilder = ({
       <h2>Step 1 - Create A Conditioned Access Policy</h2>
       <div>
         <div>
-          <h3>Customize your Conditions</h3>
+          <h3>Customize your Conditions - try increasing the block height value</h3>
           <div>
-            <h3>Condition JSON</h3>
             {conditionJSONInput}
           </div>
         </div>
