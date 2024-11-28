@@ -8,7 +8,7 @@ interface Props {
   enabled: boolean;
 }
 
-const rpcCondition = new conditions.base.jsonApi.JsonApiCondition({
+const jsonCondition = new conditions.base.jsonApi.JsonApiCondition({
   endpoint: 'https://arweave.net/info',
   query: '$.height',
   returnValueTest: {
@@ -17,7 +17,7 @@ const rpcCondition = new conditions.base.jsonApi.JsonApiCondition({
   },
 });
 console.log("Requires Authentication:");
-console.log(rpcCondition.requiresAuthentication());
+console.log(jsonCondition.requiresAuthentication());
 
 export const ConditionBuilder = ({
   condition,
@@ -26,7 +26,7 @@ export const ConditionBuilder = ({
 }: Props) => {
   const { library } = useEthers();
 
-  const demoCondition = JSON.stringify((condition ?? rpcCondition).toObj());
+  const demoCondition = JSON.stringify((condition ?? jsonCondition).toObj());
   const [conditionString, setConditionString] = useState(demoCondition);
 
   if (!enabled || !library) {
@@ -55,7 +55,7 @@ export const ConditionBuilder = ({
 
   const conditionJSONInput = makeInput(
     setConditionString,
-    JSON.stringify(rpcCondition.toObj()),
+    JSON.stringify(jsonCondition.toObj()),
   );
 
   const onCreateCondition = (e: any) => {
