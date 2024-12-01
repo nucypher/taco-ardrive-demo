@@ -7,10 +7,6 @@ import {
   ThresholdMessageKit,
   toHexString,
 } from '@nucypher/taco';
-import {
-  EIP4361AuthProvider,
-  USER_ADDRESS_PARAM_DEFAULT,
-} from '@nucypher/taco-auth';
 import { useEthers } from '@usedapp/core';
 import { ethers } from 'ethers';
 import React, { useEffect, useState } from 'react';
@@ -43,6 +39,10 @@ export default function App() {
   const [domain, setDomain] = useState<string>(DEFAULT_DOMAIN);
 
   const chainId = chainIdForDomain[domain];
+  if (!window.ethereum) {
+    console.error("No Ethereum provider found");
+    return;
+  }
   const provider = new ethers.providers.Web3Provider(window.ethereum);
 
 
@@ -97,18 +97,10 @@ export default function App() {
     );
 
     try {
-      const conditionContext =
-        conditions.context.ConditionContext.fromMessageKit(encryptedMessage);
-      const authProvider = new EIP4361AuthProvider(provider, provider.getSigner());
-      conditionContext.addAuthProvider(
-        USER_ADDRESS_PARAM_DEFAULT,
-        authProvider,
-      );
       const decryptedMessage = await decrypt(
         provider,
         domain,
-        encryptedMessage,
-        conditionContext
+        encryptedMessage
       );
       setDecryptedMessage(new TextDecoder().decode(decryptedMessage));
     } catch(e){
