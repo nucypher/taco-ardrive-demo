@@ -73,12 +73,12 @@ export default function App() {
 
     const encryptedMessageHex = toHexString(encryptedMessage.toBytes());
     await signer.setPublicKey();
-  
+
     const turbo = TurboFactory.authenticated({
       signer: signer as unknown as TurboSigner,
     });
     const response = await uploadData(signer, turbo, encryptedMessageHex);
-  
+
     const encryptedMessageId = response.id;
     console.log({ encryptedMessageId });
     setEncryptedMessageId(encryptedMessageId);
@@ -144,7 +144,7 @@ export default function App() {
           value={ritualId}
           onChange={(e) => setRitualId(parseInt(e.currentTarget.value))}
         />
-        <p>Choose a Domain. This must match the Domain of your RitualID – see the <a href={'https://docs.threshold.network/app-development/threshold-access-control-tac/integration-guide/get-started-with-tac#testnet-configuration'}>documentation</a>.</p>
+        <p>Choose a Domain. This must match the Domain of your RitualID – see the <a href={'https://docs.taco.build/taco-integration/get-started-with-tac#testnet-domains'}>documentation</a>.</p>
         <select
           defaultValue={domain}
           onChange={(e) => setDomain(e.currentTarget.value)}

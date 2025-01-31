@@ -17,7 +17,7 @@ In order to run this demo will need a browser wallet with an account funded with
 some $MATIC.
 
 In order to connect with the network, the demo uses a public instances of
-[Porter](https://docs.threshold.network/app-development/threshold-access-control-tac/porter).
+[Porter](https://docs.taco.build/architecture/porter).
 
 ### Polygon
 
@@ -31,8 +31,7 @@ The current release of `@nucypher/taco` supports Ursulas working on Lynx
 
 ## References
 
-Please find developer documentation
-[here](https://docs.threshold.network/app-development/threshold-access-control-tac).
+Please find developer documentation at [TACo docs](https://docs.taco.build/).
 
 This dApp is based on
 [`useDapp` example](https://github.com/EthWorks/useDapp/tree/master/packages/example).
